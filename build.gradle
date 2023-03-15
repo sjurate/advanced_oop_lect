@@ -10,7 +10,7 @@ apply plugin: 'java'
 
 group = 'com.academy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '19'
+sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
