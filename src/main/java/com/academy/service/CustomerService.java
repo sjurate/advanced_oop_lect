@@ -2,24 +2,26 @@ package com.academy.service;
 
 import com.academy.entity.Customer;
 import com.academy.repository.CustomerRepository;
+import com.academy.validations.CustomerValidator;
+import com.academy.validations.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @Service
 public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
+
     @Autowired
-    private Validator validator;
+    private CustomerValidator customerValidator;
 
     public List<Customer> findAll() {
         return customerRepository.findAll();
     };
 
     public void insert( Customer customer) {
-        validator.validate(customer);
+        customerValidator.validate(customer);
         Customer formattedCustomer = new Customer.Builder(
                 capitalizeFirstLetter(customer.getFirstName()),
                 capitalizeFirstLetter(customer.getLastName()),

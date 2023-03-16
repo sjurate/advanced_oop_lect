@@ -1,4 +1,4 @@
-package com.academy.service;
+package com.academy.validations;
 
 public abstract class Validator <T> {
     private T t;
